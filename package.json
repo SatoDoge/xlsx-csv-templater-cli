@@ -1,0 +1,38 @@
+{
+  "name": "template-xlsx-cli",
+  "version": "1.0.0",
+  "main": "main.js",
+  "bin": "cli.cjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:exe": "pkg ."
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "xlsx-populate": "^1.21.0"
+  },
+  "paths": {
+    "@/*": [
+      "./*"
+    ],
+    "@/modules/*": [
+      "modules/*"
+    ]
+  },
+  "pkg": {
+    "targets": [
+      "node18-win-x64"
+    ],
+    "outputPath": "dist",
+    "scripts": [
+      "main.js",
+      "modules/*.js",
+      "cli.cjs"
+    ]
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
+  }
+}
