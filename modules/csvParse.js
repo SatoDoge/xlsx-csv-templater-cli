@@ -11,7 +11,17 @@ async function loadCsv(filePath) {
         const values = line.split(',');
         const record = {};
         headers.forEach((header, index) => {
-            record[header] = values[index] || null;
+            let value = values[index] || "";
+            if (value.length > 0) {
+                if (value[0] === '"' || value[0] === "'") {
+                    value = value.slice(1);
+                }
+                if (value.length > 0 && (value[value.length - 1] === '"' || value[value.length - 1] === "'")) {
+                    value = value.slice(0, -1);
+                }
+            }
+            values[index] = value;
+            record[header] = values[index];
         });
         return record;
     });
