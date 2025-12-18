@@ -4,13 +4,14 @@
   "main": "main.js",
   "bin": "cli.cjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node main.js --csv base.csv --template template.xlsx --schema schema.json --output-dir out",
     "build:exe": "pkg ."
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "module-alias": "^2.2.3",
     "xlsx-populate": "^1.21.0"
   },
   "paths": {
