@@ -4,7 +4,6 @@ function validateCsvRows(rows, schema, outputPrefix) {
 
     rows.forEach((row, idx) => {
         const missing = requiredKeys.filter(key => !(key in row) || row[key] === null || row[key] === undefined);
-        console.log(row)
         if (missing.length > 0) {
             problems.push(`Row ${idx + 1}: missing values for ${missing.join(', ')}`);
         }
